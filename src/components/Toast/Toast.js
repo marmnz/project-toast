@@ -18,11 +18,7 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ onClose, type = "notice", visible = true, children }) {
-  if (!visible) {
-    return;
-  }
-
+function Toast({ onClose, type = "notice", children }) {
   const Icon = ICONS_BY_VARIANT[type];
 
   return (
