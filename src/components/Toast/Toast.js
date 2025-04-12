@@ -27,7 +27,7 @@ function Toast({ onClose, type = "notice", children }) {
         <Icon size={24} />
       </div>
       <p className={styles.content}>
-        <div class="VisuallyHidden_wrapper">{type} -</div>
+        <VisuallyHidden>{type} -</VisuallyHidden>
         {children}
       </p>
       <button

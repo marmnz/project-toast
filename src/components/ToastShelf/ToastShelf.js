@@ -1,21 +1,10 @@
 import React from "react";
 import Toast from "../Toast";
+import useEscapeKey from "../../hooks/use-escape-key";
 import styles from "./ToastShelf.module.css";
 
 function ToastShelf({ toasts, onCloseToast }) {
-  React.useEffect(() => {
-    const closeFirstToast = (event) => {
-      if (event.code === "Escape") {
-        onCloseToast(toasts[0].id);
-      }
-    };
-
-    window.document.addEventListener("keyup", closeFirstToast);
-
-    return () => {
-      window.document.removeEventListener("keyup", closeFirstToast);
-    };
-  }, [toasts, onCloseToast]);
+  useEscapeKey(() => onCloseToast(toasts[0].id));
 
   return (
     <ol
